@@ -41,23 +41,21 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Internal server error.' });
 });
 
-if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
-    const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-    const startServer = async () => {
-        if (process.env.MONGO_URI) {
-            await connectToMongo();
-        }
+const startServer = async () => {
+    if (process.env.MONGO_URI) {
+        await connectToMongo();
+    }
 
-        app.listen(PORT, () => {
-            console.log(`Idea Graveyard server running on http://localhost:${PORT}`);
-        });
-    };
-
-    startServer().catch((err) => {
-        console.error('Server startup failed:', err);
-        process.exit(1);
+    app.listen(PORT, () => {
+        console.log(`Idea Graveyard server running on http://localhost:${PORT}`);
     });
-}
+};
+
+startServer().catch((err) => {
+    console.error('Server startup failed:', err);
+    process.exit(1);
+});
 
 module.exports = app;
