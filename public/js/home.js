@@ -29,7 +29,7 @@ function renderIdeas(ideas) {
     }
 
     container.innerHTML = `<div class="cards-grid">${ideas.map(idea => `
-    <div class="idea-card" onclick="viewIdea(${idea.idea_id})">
+    <div class="idea-card" onclick="viewIdea('${idea.idea_id}')">
       <div class="card-domain">${escHtml(domainIcon(idea.industry_domain))} ${escHtml(idea.industry_domain || 'Other')}</div>
       <div class="card-title">${escHtml(idea.title)}</div>
       <div class="card-desc">${escHtml(idea.short_description)}</div>

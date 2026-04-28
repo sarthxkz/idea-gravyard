@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const btn = document.getElementById('submitBtn');
 
         const categoryIds = [...grid.querySelectorAll('input[type="checkbox"]:checked')]
-            .map(cb => parseInt(cb.value));
+            .map(cb => cb.value);
 
         if (categoryIds.length === 0) {
             showToast('Please select at least one failure category.', 'error');

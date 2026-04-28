@@ -3,8 +3,7 @@
 -- Database: idea_graveyard_db
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS idea_graveyard_db;
-USE idea_graveyard_db;
+-- Database handled by connection config
 
 -- ============================================================
 -- TABLE: USERS
@@ -42,7 +41,9 @@ CREATE TABLE IF NOT EXISTS IDEAS (
     CONSTRAINT fk_ideas_user
         FOREIGN KEY (posted_by) REFERENCES USERS(user_id)
         ON DELETE SET NULL
-        ON UPDATE CASCADE
+        ON UPDATE CASCADE,
+    INDEX idx_ideas_domain (industry_domain),
+    INDEX idx_ideas_posted_by (posted_by)
 );
 
 -- ============================================================
@@ -60,7 +61,9 @@ CREATE TABLE IF NOT EXISTS IDEA_FAILURE_MAP (
         FOREIGN KEY (category_id) REFERENCES FAILURE_CATEGORIES(category_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-    UNIQUE KEY unique_idea_category (idea_id, category_id)
+    UNIQUE KEY unique_idea_category (idea_id, category_id),
+    INDEX idx_ifm_idea (idea_id),
+    INDEX idx_ifm_category (category_id)
 );
 
 -- ============================================================
@@ -80,14 +83,6 @@ CREATE TABLE IF NOT EXISTS FEEDBACK (
     CONSTRAINT fk_feedback_user
         FOREIGN KEY (posted_by) REFERENCES USERS(user_id)
         ON DELETE SET NULL
-        ON UPDATE CASCADE
+        ON UPDATE CASCADE,
+    INDEX idx_feedback_idea (idea_id)
 );
-
--- ============================================================
--- INDEXES for performance
--- ============================================================
-CREATE INDEX idx_ideas_domain    ON IDEAS(industry_domain);
-CREATE INDEX idx_ideas_posted_by ON IDEAS(posted_by);
-CREATE INDEX idx_feedback_idea   ON FEEDBACK(idea_id);
-CREATE INDEX idx_ifm_idea        ON IDEA_FAILURE_MAP(idea_id);
-CREATE INDEX idx_ifm_category    ON IDEA_FAILURE_MAP(category_id);

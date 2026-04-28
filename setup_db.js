@@ -9,8 +9,10 @@ async function setup() {
       host: process.env.DB_HOST || 'localhost',
       user: process.env.DB_USER || 'root',
       password: process.env.DB_PASSWORD || '',
+      database: process.env.DB_NAME || 'idea_graveyard_db',
       port: parseInt(process.env.DB_PORT || '3306'),
-      multipleStatements: true
+      multipleStatements: true,
+      ssl: process.env.DB_HOST && process.env.DB_HOST !== 'localhost' ? { rejectUnauthorized: false } : undefined
     });
 
     console.log('Connected to MySQL server.');

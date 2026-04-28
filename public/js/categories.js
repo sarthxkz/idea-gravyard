@@ -11,7 +11,7 @@ async function loadCategories() {
         }
 
         container.innerHTML = `<div class="cat-grid">${cats.map((c, i) => `
-      <div class="cat-card" onclick="loadCategoryIdeas(${c.category_id}, '${escHtml(c.category_name)}')">
+      <div class="cat-card" onclick="loadCategoryIdeas('${c.category_id}', '${escHtml(c.category_name)}')">
         <div class="cat-icon">${CAT_ICONS[i % CAT_ICONS.length]}</div>
         <div class="cat-name">${escHtml(c.category_name)}</div>
         <div class="cat-desc">${escHtml(c.description || '')}</div>

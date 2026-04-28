@@ -1,12 +1,12 @@
 -- ============================================================
 -- Idea Graveyard – Seed Data & SQL Operations Demo
 -- ============================================================
-USE idea_graveyard_db;
+-- USE idea_graveyard_db;
 
 -- ============================================================
 -- INSERT: Users (passwords are bcrypt hashes of 'password123')
 -- ============================================================
-INSERT INTO USERS (username, email, password_hash) VALUES
+INSERT IGNORE INTO USERS (username, email, password_hash) VALUES
 ('alex_founder',  'alex@example.com',   '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lh.2'),
 ('maya_builder',  'maya@example.com',   '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lh.2'),
 ('raj_techie',    'raj@example.com',    '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lh.2'),
@@ -16,7 +16,7 @@ INSERT INTO USERS (username, email, password_hash) VALUES
 -- ============================================================
 -- INSERT: Failure Categories
 -- ============================================================
-INSERT INTO FAILURE_CATEGORIES (category_name, description) VALUES
+INSERT IGNORE INTO FAILURE_CATEGORIES (category_name, description) VALUES
 ('Market Mismatch',        'The product did not address a real market need or customer pain point.'),
 ('Poor Execution',         'The idea was sound but implementation was flawed or mismanaged.'),
 ('Funding Issues',         'Ran out of capital before achieving sustainability or product-market fit.'),
@@ -31,7 +31,7 @@ INSERT INTO FAILURE_CATEGORIES (category_name, description) VALUES
 -- ============================================================
 -- INSERT: Ideas
 -- ============================================================
-INSERT INTO IDEAS (title, short_description, detailed_postmortem, industry_domain, posted_by, is_anonymous) VALUES
+INSERT IGNORE INTO IDEAS (title, short_description, detailed_postmortem, industry_domain, posted_by, is_anonymous) VALUES
 (
   'UberEats for Pets',
   'On-demand pet food delivery with live GPS tracking of delivery pets.',
@@ -106,7 +106,7 @@ INSERT INTO IDEAS (title, short_description, detailed_postmortem, industry_domai
 -- ============================================================
 -- INSERT: Idea–Failure Category Mappings
 -- ============================================================
-INSERT INTO IDEA_FAILURE_MAP (idea_id, category_id) VALUES
+INSERT IGNORE INTO IDEA_FAILURE_MAP (idea_id, category_id) VALUES
 (1, 1), (1, 6), (1, 9),   -- UberEats for Pets
 (2, 1), (2, 5), (2, 8),   -- Blockchain Resume
 (3, 2), (3, 10), (3, 5),  -- AR Grocery
@@ -121,7 +121,7 @@ INSERT INTO IDEA_FAILURE_MAP (idea_id, category_id) VALUES
 -- ============================================================
 -- INSERT: Feedback
 -- ============================================================
-INSERT INTO FEEDBACK (idea_id, posted_by, comment_text, is_anonymous) VALUES
+INSERT IGNORE INTO FEEDBACK (idea_id, posted_by, comment_text, is_anonymous) VALUES
 (1, 2, 'The unit economics breakdown is really insightful. Same thing killed our grocery delivery startup.', FALSE),
 (1, 3, 'Did you ever try B2B — partnering with pet clinics instead of going D2C?', FALSE),
 (2, 1, 'Blockchain for resume is a classic over-engineering trap. SAML assertions would have done the same job.', FALSE),
