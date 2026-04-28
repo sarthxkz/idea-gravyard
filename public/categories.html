@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Failure Categories – Idea Graveyard</title>
+    <meta name="description" content="Browse all failure categories and see which concepts killed the most ideas." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/index.html" class="nav-brand"><span class="skull">🪦</span> Idea Graveyard</a>
+        <ul class="nav-links">
+            <li><a href="/index.html"><span>🏠</span> <span>Home</span></a></li>
+            <li><a href="/submit.html"><span>➕</span> <span>Submit Idea</span></a></li>
+            <li><a href="/categories.html"><span>🏷️</span> <span>Categories</span></a></li>
+            <li><a href="/analytics.html"><span>📊</span> <span>Analytics</span></a></li>
+        </ul>
+        <div class="nav-auth" id="nav-auth"></div>
+    </nav>
+
+    <main class="container page-wrapper">
+        <div class="page-header">
+            <h1>🏷️ Failure Categories</h1>
+            <p>Every great failure has a reason. Browse our curated taxonomy of why ideas die.</p>
+        </div>
+
+        <div id="catsContainer">
+            <div class="spinner-wrap">
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <!-- Ideas for selected category -->
+        <div id="catIdeasSection" style="display:none;margin-top:2.5rem">
+            <div
+                style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:0.75rem">
+                <h2 class="section-title" id="catIdeasTitle"></h2>
+                <button class="btn btn-outline btn-sm" onclick="closeCatIdeas()">✕ Close</button>
+            </div>
+            <div id="catIdeasGrid" class="cards-grid"></div>
+        </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/categories.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Idea Detail – Idea Graveyard</title>
+    <meta name="description" content="Read the full postmortem for this failed idea." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/index.html" class="nav-brand"><span class="skull">🪦</span> Idea Graveyard</a>
+        <ul class="nav-links">
+            <li><a href="/index.html"><span>🏠</span> <span>Home</span></a></li>
+            <li><a href="/submit.html"><span>➕</span> <span>Submit Idea</span></a></li>
+            <li><a href="/categories.html"><span>🏷️</span> <span>Categories</span></a></li>
+            <li><a href="/analytics.html"><span>📊</span> <span>Analytics</span></a></li>
+        </ul>
+        <div class="nav-auth" id="nav-auth"></div>
+    </nav>
+
+    <main class="container page-wrapper" style="max-width:900px">
+        <a href="/index.html" class="btn btn-outline btn-sm" style="margin-bottom:1.5rem">← Back to Graveyard</a>
+
+        <div id="detailContainer">
+            <div class="spinner-wrap">
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <div id="feedbackSection" style="display:none;margin-top:2rem">
+            <h2 class="section-title">💬 Community Feedback <span id="feedbackCount"
+                    style="color:var(--text-muted);font-size:0.9rem"></span></h2>
+
+            <div id="feedbackList" class="feedback-list"></div>
+
+            <div id="feedbackFormWrap" class="feedback-form">
+                <h3 class="section-title" style="font-size:1rem;margin-bottom:1rem">Add Your Thoughts</h3>
+                <div id="feedbackAuthGate" style="display:none">
+                    <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:0.75rem">
+                        🔐 <a href="/login.html">Log in</a> to leave feedback.
+                    </p>
+                </div>
+                <div id="feedbackForm" style="display:none">
+                    <div class="form-group">
+                        <textarea id="feedbackText" class="input-field" rows="3"
+                            placeholder="Share your thoughts, lessons learned, or what you'd have done differently…"></textarea>
+                    </div>
+                    <div
+                        style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem">
+                        <label class="toggle-wrap" id="fbAnonToggle" style="cursor:pointer">
+                            <input type="checkbox" id="fbAnon" />
+                            <span class="toggle"></span>
+                            <span style="color:var(--text-secondary);font-size:0.85rem">Post anonymously</span>
+                        </label>
+                        <button class="btn btn-primary" id="submitFeedback">Post Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div class="modal-overlay" id="deleteModal">
+            <div class="modal">
+                <div class="modal-title">🗑️ Delete this Idea?</div>
+                <p style="color:var(--text-secondary);font-size:0.9rem">
+                    This will permanently remove the idea and all its feedback from the graveyard.
+                </p>
+                <div class="modal-actions">
+                    <button class="btn btn-outline"
+                        onclick="document.getElementById('deleteModal').classList.remove('open')">Cancel</button>
+                    <button class="btn btn-danger" id="confirmDelete">Yes, Delete</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/detail.js"></script>
+</body>
+
+</html>

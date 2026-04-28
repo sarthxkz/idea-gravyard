@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Idea – Idea Graveyard</title>
+    <meta name="description" content="Submit your failed idea postmortem to the Idea Graveyard community." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/index.html" class="nav-brand"><span class="skull">🪦</span> Idea Graveyard</a>
+        <ul class="nav-links">
+            <li><a href="/index.html"><span>🏠</span> <span>Home</span></a></li>
+            <li><a href="/submit.html"><span>➕</span> <span>Submit Idea</span></a></li>
+            <li><a href="/categories.html"><span>🏷️</span> <span>Categories</span></a></li>
+            <li><a href="/analytics.html"><span>📊</span> <span>Analytics</span></a></li>
+        </ul>
+        <div class="nav-auth" id="nav-auth"></div>
+    </nav>
+
+    <main class="container page-wrapper">
+        <div class="page-header">
+            <h1>🪦 Submit a Failed Idea</h1>
+            <p>Contribute to the graveyard. Share your postmortem so others can learn.</p>
+        </div>
+
+        <div id="authGate" style="display:none" class="form-card" style="text-align:center;padding:3rem">
+            <p style="font-size:1.2rem;margin-bottom:1rem">🔐 You must be logged in to submit an idea.</p>
+            <a href="/login.html" class="btn btn-primary btn-lg">Login to Continue</a>
+        </div>
+
+        <form id="submitForm" class="form-card" style="max-width:780px;margin:0 auto;display:none">
+
+            <div class="form-group">
+                <label class="form-label" for="title">Idea Title <span class="required">*</span></label>
+                <input type="text" id="title" class="input-field" placeholder="e.g. UberEats for Pets" maxlength="100"
+                    required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="shortDesc">Short Description <span class="required">*</span></label>
+                <textarea id="shortDesc" class="input-field" rows="3"
+                    placeholder="Brief one-paragraph summary of the idea and why it failed…" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="postmortem">Detailed Postmortem <span class="required">*</span></label>
+                <textarea id="postmortem" class="input-field" rows="8"
+                    placeholder="Tell the full story. What did you build? What were the key milestones? What went wrong and why? What would you do differently?…"
+                    required></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="domain">Industry Domain <span class="required">*</span></label>
+                    <select id="domain" class="input-field" required>
+                        <option value="">Select a domain…</option>
+                        <option>Food & Delivery</option>
+                        <option>HR & Recruiting</option>
+                        <option>Retail & Commerce</option>
+                        <option>EdTech</option>
+                        <option>HealthTech</option>
+                        <option>Web3 & NFT</option>
+                        <option>Smart City</option>
+                        <option>eCommerce</option>
+                        <option>FinTech</option>
+                        <option>Social Media</option>
+                        <option>SaaS</option>
+                        <option>Gaming</option>
+                        <option>Real Estate</option>
+                        <option>Travel</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Post Anonymously</label>
+                    <label class="toggle-wrap" id="anonToggle">
+                        <input type="checkbox" id="isAnonymous" />
+                        <span class="toggle"></span>
+                        <span style="color:var(--text-secondary);font-size:0.875rem">Hide my username</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Failure Categories <span class="required">*</span>
+                    <span style="font-weight:400;color:var(--text-muted);margin-left:0.4rem">(select all that
+                        apply)</span>
+                </label>
+                <div class="category-grid" id="categoryGrid">
+                    <div class="spinner-wrap" style="padding:1rem">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:flex;justify-content:flex-end;gap:0.75rem;margin-top:0.5rem">
+                <a href="/index.html" class="btn btn-outline">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                    🪦 Bury This Idea
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/submit.js"></script>
+</body>
+
+</html>

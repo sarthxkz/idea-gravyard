@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Dashboard – Idea Graveyard</title>
+    <meta name="description"
+        content="Explore data analytics on failed ideas broken down by industry domain, failure categories, and more." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/index.html" class="nav-brand"><span class="skull">🪦</span> Idea Graveyard</a>
+        <ul class="nav-links">
+            <li><a href="/index.html"><span>🏠</span> <span>Home</span></a></li>
+            <li><a href="/submit.html"><span>➕</span> <span>Submit Idea</span></a></li>
+            <li><a href="/categories.html"><span>🏷️</span> <span>Categories</span></a></li>
+            <li><a href="/analytics.html"><span>📊</span> <span>Analytics</span></a></li>
+        </ul>
+        <div class="nav-auth" id="nav-auth"></div>
+    </nav>
+
+    <main class="container page-wrapper">
+        <div class="page-header">
+            <h1>📊 Analytics Dashboard</h1>
+            <p>Data-driven insights into the landscape of failure. Learn which domains fail most and why.</p>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="stats-grid" id="statCards">
+            <div class="stat-card">
+                <div class="spinner" style="margin:auto"></div>
+            </div>
+        </div>
+
+        <!-- Ideas by Domain Bar Chart -->
+        <div class="chart-section">
+            <h2 class="section-title">📁 Ideas per Industry Domain</h2>
+            <div class="bar-chart" id="domainChart">
+                <div class="spinner-wrap" style="padding:1rem">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top ideas by feedback -->
+        <div class="chart-section">
+            <h2 class="section-title">🔥 Most Discussed Ideas</h2>
+            <div id="topIdeasList">
+                <div class="spinner-wrap" style="padding:1rem">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Industry Domains List -->
+        <div class="chart-section">
+            <h2 class="section-title">🌐 Distinct Industry Domains</h2>
+            <div id="domainList" style="display:flex;flex-wrap:wrap;gap:0.5rem;padding-top:0.25rem"></div>
+        </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/analytics.js"></script>
+</body>
+
+</html>

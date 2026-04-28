@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idea Graveyard – Where Failed Ideas Rest in Peace</title>
+  <meta name="description" content="A community platform that documents failed ideas and analyzes reasons for failure. Learn from the postmortems of startups that didn't make it." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- ─── Navbar ─────────────────────────────────────────── -->
+  <nav class="navbar">
+    <a href="/index.html" class="nav-brand"><span class="skull">🪦</span> Idea Graveyard</a>
+    <ul class="nav-links">
+      <li><a href="/index.html"><span>🏠</span> <span>Home</span></a></li>
+      <li><a href="/submit.html"><span>➕</span> <span>Submit Idea</span></a></li>
+      <li><a href="/categories.html"><span>🏷️</span> <span>Categories</span></a></li>
+      <li><a href="/analytics.html"><span>📊</span> <span>Analytics</span></a></li>
+    </ul>
+    <div class="nav-auth" id="nav-auth"></div>
+  </nav>
+
+  <!-- ─── Hero ──────────────────────────────────────────── -->
+  <section class="hero container">
+    <div class="hero-badge">🪦 The Startup Graveyard</div>
+    <h1>Where Failed Ideas<br/>Rest in Peace</h1>
+    <p>Document your startup postmortems, learn from others' failures, and understand why great ideas don't always become great products.</p>
+    <div class="hero-cta">
+      <a href="/submit.html" class="btn btn-primary btn-lg">➕ Submit Your Failed Idea</a>
+      <a href="/categories.html" class="btn btn-outline btn-lg">🏷️ Browse Failure Categories</a>
+    </div>
+  </section>
+
+  <!-- ─── Main ──────────────────────────────────────────── -->
+  <main class="container page-wrapper">
+    <!-- Search & Filter -->
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          class="input-field with-icon"
+          placeholder="Search ideas by title…"
+          autocomplete="off"
+        />
+      </div>
+      <select id="domainFilter" class="input-field">
+        <option value="">🌐 All Domains</option>
+      </select>
+      <button class="btn btn-outline" id="clearBtn">✕ Clear</button>
+    </div>
+
+    <div id="ideasContainer">
+      <div class="spinner-wrap"><div class="spinner"></div></div>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>
